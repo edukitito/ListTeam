@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Signup</title>
+    <link rel="stylesheet" th:href="@{/css/singupcss.css}">
+</head>
+<body>
+    <div>
+        <h1>Sign Up</h1>
+        <form id="signupForm">
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" required><br>
+            <label for="cargouser">Cargo:</label><br>
+            <input type="text" id="cargouser" name="cargouser" required><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br>
+            <label for="confirmPassword">Confirm Password:</label><br>
+            <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p id="message"></p>
+    </div>
+
+<script th:src="@{/javascript/script.js}"></script>
+</body>
+</html>

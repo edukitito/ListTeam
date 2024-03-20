@@ -1,0 +1,82 @@
+/* Normalize some browser defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set up base styles */
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #f2712c, #e31a1a); /* Gradient background */
+}
+
+/* Style the heading */
+h1 {
+    text-align: center;
+    color: #fff; /* White text */
+    margin-bottom: 20px;
+    font-size: 2.5rem; /* Larger heading */
+}
+
+/* Style the login form */
+#loginForm {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    max-width: 400px; /* Set a maximum width for responsiveness */
+    width: 100%; /* Ensure form fills available space */
+    transition: background-color 0.2s ease-in-out; /* Smooth transition on hover */
+}
+
+/* Style form labels */
+#loginForm label {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff; /* White text */
+}
+
+/* Style form inputs */
+#loginForm input[type="text"],
+#loginForm input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Light white border */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 15px;
+    background-color: rgba(0, 0, 0, 0.2); /* Darker background for inputs */
+    color: #fff; /* White text */
+    transition: border-color 0.2s ease-in-out; /* Smooth transition on focus */
+}
+
+#loginForm input[type="text"]:focus,
+#loginForm input[type="password"]:focus {
+    border-color: #fff; /* White border on focus */
+}
+
+/* Style the submit button */
+#loginForm button[type="submit"] {
+    background-color: #e31a1a; /* Red button color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out; /* Smooth transition on hover */
+}
+
+#loginForm button[type="submit"]:hover {
+    background-color: #c0291a; /* Darker red on hover */
+}
+
+/* Style the error message */
+#message {
+    text-align: center;
+    color: red; /* Red error message */
+    margin-top: 10px;
+}
