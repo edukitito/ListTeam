@@ -8,12 +8,17 @@ submitButton.addEventListener('click', async (event) => {
     // Coletar dados do formulário
     const formData = new FormData(form);
     const email = formData.get('email');
-    const tokem = formData.get('password');
-    const confirmPassword = formData.get('confirmPassword');
+    const  password = formData.get('password');
+    let tokem;
+    if(password instanceof String){
+        tokem = password;
+    }else {
+        tokem = password.toString();
+    }
 
     // Criar a requisição
     try {
-        const response = await fetch('http://localhost:8080/users', {
+        const response = await fetch('http://localhost:8080/users/login', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -28,15 +33,15 @@ submitButton.addEventListener('click', async (event) => {
         // Tratar a resposta
         if (response.ok) {
             // Requisição bem-sucedida
-            message.textContent = 'Cadastro realizado com sucesso!';
+            message.textContent = 'Login realizado com sucesso!';
             // Redirecionar para outra página ou realizar outras ações
         } else {
             // Requisição falhou
             const error = await response.json();
-            message.textContent = error.message || 'Cadastro falhou.';
+            message.textContent = error.message || 'Login falhou.';
         }
     } catch (error) {
         console.error('Erro ao enviar requisição:', error);
-        message.textContent = 'Erro ao realizar cadastro.';
+        message.textContent = 'Erro ao realizar Login.';
     }
 });

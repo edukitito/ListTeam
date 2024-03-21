@@ -10,17 +10,18 @@
     <div>
         <h1>Login</h1>
         <form id="loginForm">
-            <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username" required><br>
+            <label for="email">Username:</label><br>
+            <input type="text" id="email" name="email" required><br>
             <label for="password">Password:</label><br>
             <input type="password" id="password" name="password" required><br><br>
             <button type="submit">Login</button>
         </form>
-        <p th:text="${message}"></p>
+        <p th:text="${message}" id="message" type="text" name="message"></p>
         <div class="signup-link">
             <a th:href="@{/singup}">Don't have an account? Sign Up</a>
         </div>
 
     </div>
+    <script th:src="@{/javascript/loginScript.js}"></script>
 </body>
 </html>

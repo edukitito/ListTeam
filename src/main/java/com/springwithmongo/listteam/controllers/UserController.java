@@ -1,6 +1,7 @@
 package com.springwithmongo.listteam.controllers;
 
 import com.springwithmongo.listteam.entities.User;
+import com.springwithmongo.listteam.entities.UserLogin;
 import com.springwithmongo.listteam.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -45,25 +46,17 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping(value = "/login")
-    public String index(Model model){
-        return "login";
-    }
-
     @PostMapping(value = "/login")
-    public String login(@RequestParam String useremail, @RequestParam String userpassword, Model model){
-        User user = service.findByEmail(useremail);
+    public ResponseEntity<Void> login(@RequestBody UserLogin userLogin){
+        User user = service.findByEmail(userLogin.getEmail());
         if(user!= null){
-            if(userpassword.equals(user.getTokem())){
-                model.addAttribute("message", "Usuário autenticado");
-                return "login";
+            if(userLogin.getTokem().equals(user.getTokem())){
+                return ResponseEntity.ok().build();
             }else {
-                model.addAttribute("message", "Senha Inválida");
-                return "login";
+                return ResponseEntity.notFound().build();
             }
         }else {
-            model.addAttribute("message", "Usuário Não cadastrado");
-            return "login";
+            return ResponseEntity.notFound().build();
         }
 
     }
